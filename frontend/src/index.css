@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif
+}
+
+:root {
+  --primary: 	#FFC300;
+  --black: #000000;
+  --blackLighter: #9E9E9E;
+  --grayLight: #F5F5F5;
+  --grayMedium: #e5e5e5; 
+  --white: #FFFFFF;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+} 

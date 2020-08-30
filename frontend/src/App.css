@@ -1,0 +1,14 @@
+body{
+    background:#FFC300
+}
+.Logo {
+    max-width: 168px;
+    display: flex;
+    flex-direction: row;
+  }
+  @media (max-width: 800px) {
+    .Logo {
+      max-width: 105px;
+    }
+  }
+  
