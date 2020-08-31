@@ -1,7 +1,8 @@
 import React,{Component} from 'react'
-import { AiOutlineMail,AiOutlineLock} from "react-icons/ai"
+import {AiOutlineLock,AiOutlineUser} from "react-icons/ai"
 import { ToastContainer, toast } from 'react-toastify';
 import Button from '../../components/Button'
+import Input from '../../components/Input'
 import Container from '../../components/Container'
 import Title from '../../components/Title'
 import Form from '../../components/Form'
@@ -43,27 +44,22 @@ handlePassword= async e=>{
  render(){
 
      return(
-         <Container width="600px" height="450px" >
-            <Title>Sign In</Title>
+         <Container width="600px" height="400px">
+            <Title>Login</Title>
             <Form>
-                <div >
-                    <label>Email address</label>
-                    <AiOutlineMail></AiOutlineMail>
-                    <input type="email"  placeholder="Enter email" value={this.state.email} onChange={this.handleEmail} />
+                <div>
+                    <label >CPF</label>
+                    <AiOutlineUser ></AiOutlineUser>
+                    <Input width ="500px" type="cpf"  placeholder="Digite seu CPF" value={this.state.email} onChange={this.handleEmail} />
                 </div>
 
                 <div>
-                    <label>Password</label>
+                    <label>Senha</label>
                     <AiOutlineLock></AiOutlineLock>
-                    <input type="password"  placeholder="Enter password"  value={this.state.password} onChange={this.handlePassword}/>
+                    <Input width = "500px" type="password"  placeholder="Digite sua senha"  value={this.state.password} onChange={this.handlePassword}/>
                 </div>
                 <div>
-                    <p className="forgot-password text-right">
-                        Not registered? Click here to <a href="#">sign up</a>
-                    </p>
-                </div>
-                <div>
-                    <Button  width="100%" type="submit" onClick={this.handleSubmit} >Submit</Button>
+                    <Button width="95%" type="submit" onClick={this.handleSubmit} >Login</Button>
                 </div>
             </Form>
             <ToastContainer/>

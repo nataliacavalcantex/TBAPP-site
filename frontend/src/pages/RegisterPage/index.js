@@ -1,12 +1,13 @@
 import React,{Component} from 'react'
 import Title from '../../components/Title'
 import Form from '../../components/Form'
+import Input from '../../components/Input'
 import Button from '../../components/Button'
 import Container from '../../components/Container'
-import { AiOutlineMail,AiOutlineLock,AiOutlineUser} from "react-icons/ai"
+import { AiOutlineMail,AiOutlineLock,AiOutlineUser,AiOutlinePhone,AiOutlineSetting,AiOutlineHome,AiOutlineAudit} from "react-icons/ai"
 import { ToastContainer, toast } from 'react-toastify';
 import api from '../../services/api.js'
-import "./styles.css"
+import './styles.css'
 import 'react-toastify/dist/ReactToastify.css';
 class RegisterPage extends Component{1
     state={
@@ -42,30 +43,49 @@ class RegisterPage extends Component{1
     render(){
         const{name,email,password}=this.state
         return(
-            <Container width="600px" height="550px">
-                <Form>
-                    <Title>Sign Up</Title>   
-                    <div >
-                        <label>Name </label>
+            <Container width="45%" height="95%">
+                <h1>Cadastro</h1>
+                <Form display="grid"> 
+                    <div>
+                        <label>Nome </label>
                         <AiOutlineUser></AiOutlineUser>
-                        <input type="name"  placeholder="Enter name" value={this.name} onChange={this.handleName}/>
+                        <Input  width=" 500px" type="name"  placeholder="Digite o nome" value={this.name} onChange={this.handleName}/>
                     </div>
                     <div>
-                        <label>Email address</label>
+                        <label>CPF </label>
+                        <AiOutlineAudit></AiOutlineAudit>
+                        <Input  width=" 500px" type="name"  placeholder="Digite o CPF" value={this.name} onChange={this.handleName}/>
+                    </div>
+                    <div>
+                        <label>Email </label>
                         <AiOutlineMail></AiOutlineMail>
-                        <input type="email"  placeholder="Enter email" value={this.email} onChange={this.handleEmail} />
+                        <Input width=" 500px" type="name"  placeholder="Digite o email" value={this.name} onChange={this.handleName}/>
                     </div>
                     <div >
-                        <label>Password</label>
+                        <label>Senha </label>
                         <AiOutlineLock></AiOutlineLock>
-                        <input type="password" placeholder="Enter password" value={this.password} onChange={this.handlePassword} />
-                        
+                        <Input  width=" 500px" type="password"  placeholder="Digite a senha" value={this.name} onChange={this.handleName}/>
                     </div>
-                    <p className="forgot-password text-right">
-                    Already registered <a href="#">sign in?</a>
-                    </p>
-                    <Button  width="100%"type="submit" onClick={this.handleSubmit} >Register</Button>
+                    <div >
+                        <label>Telefone </label>
+                        <AiOutlinePhone></AiOutlinePhone>
+                        <Input type="name"  placeholder="Digite o telefone" value={this.name} onChange={this.handleName}/>
+                    </div>
+                    <div >
+                        <label>Unidade </label>
+                        <AiOutlineHome></AiOutlineHome>
+                        <Input type="name"  placeholder="Escolha a Unidade" value={this.name} onChange={this.handleName}/>
+                    </div>
+                    <div >
+                        <label>Tipo de usuário </label>
+                        <AiOutlineSetting></AiOutlineSetting>
+                        <Input type="name"  placeholder="Escolha o tipo de usuário" value={this.name} onChange={this.handleName}/>
+                    </div>
+                   
+                    <br></br>
+                    <Button  width="100%"type="submit" onClick={this.handleSubmit} >Cadastrar</Button>
                 </Form>
+                
                 <ToastContainer/>
             </Container>
         )
