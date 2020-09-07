@@ -13,9 +13,18 @@ function MainPage() {
             <Menu open={open} setOpen={setOpen} />
         </div>
         <body>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <Container width='90vh' height='40vh' className="container">
-                <h1>Bem vindo ao TBApp</h1>
-                <p className='text'>O TBApp é um aplicativo que auxilia os pacientes durante o tratamento e permite os profissionais de saúde acompanhar de perto o tratamento dos enfermos</p>
+                <h2>Bem vindo ao TBApp</h2>
+                <br></br>
+                <br></br>
+                <p >O TBApp é um aplicativo que auxilia os pacientes durante o tratamento da tuberculose e permite que os profissionais de saúde acompanhem mais de perto o tratamento dos enfermos</p>
             </Container>
         </body>
         </>

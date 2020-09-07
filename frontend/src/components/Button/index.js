@@ -8,7 +8,7 @@ const Button=styled.button.attrs(props=>({
     border: 1px solid var(--white);
     margin-left:auto ;
     margin-right:auto ;
-    margin-top:5px  ;
+    margin-top:5%  ;
     width:${props => props.width};
     box-sizing: border-box;
     cursor: pointer;

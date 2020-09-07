@@ -30,10 +30,18 @@ class UserController{
         })
     }
     async index(req,res){
+        console.log(req.userId)
+        // const user= await User.findOne({
+        //     where:{
+        //         id:req.userId
+        //     }
+        // })
 
+        // if(!user){
+        //     return res.status(404).json({error:"User not found"})
+        // }
+        // return res.json(user)
     }
-    async show(req,res){
 
-    }
 }
 export default new UserController()
