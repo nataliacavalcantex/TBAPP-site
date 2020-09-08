@@ -1,5 +1,28 @@
 label{
-   padding-right:10px;
-    
+   padding-right:5px;
+   margin-left:4% ;
+   margin-bottom: 2.5%;
+   margin-top: 1.5%;
 }
 
+.Logo {
+   max-width: 188px;
+   flex-direction: row;
+   position: fixed;
+   z-index: -1;
+   width: 180px;
+   border-radius: 4px;
+   margin-left: -10%;
+   margin-top:-0.5%;
+  
+
+ }
+ .Link{
+    color:white
+ }
+ .text{
+    text-align: left;
+    margin-top:1%;
+    margin-left:30%;
+    margin-right:0%;
+ }

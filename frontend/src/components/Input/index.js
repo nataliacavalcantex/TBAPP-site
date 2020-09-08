@@ -18,7 +18,7 @@ const Input =styled.input.attrs(props =>({
   color: #282828;
   outline: none;
   opacity:0.5;
- 
+  margin-left:2%;
   -webkit-appearance: none;
 
 `
