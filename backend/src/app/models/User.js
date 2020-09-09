@@ -19,9 +19,15 @@ class User extends Model{
                 user.password_hash= await bcrypt.hash(user.password,8)
             }
         })
+        this.addHook('beforeSave',async (user)=>{
+            if(user.unity_id === user.unity2_id){
+                console.log('Nao foi possivel vincular usuário')
+            }
+        })
     }
     static associate(models){
         this.belongsTo(models.Unity,{foreignKey:'unity_id',as:'unitys'})
+        this.belongsTo(models.Unity,{foreignKey:'unity2_id',as:'unitys2'})
     }
     checkPassword(password){
         return bcrypt.compare(password,this.password_hash)

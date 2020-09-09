@@ -11,7 +11,8 @@ routes.get('/professionals',ProfessionalController.show)
 routes.post('/users',UserController.store)
 
 routes.use(authMiddleware)
-routes.post('/user',UserController.index)
+routes.put('/user',UserController.update)
+routes.get('/user',UserController.index)
 routes.get('/unitys',UnityController.show)
 
 export default routes
