@@ -1,0 +1,24 @@
+.cancel-button{
+
+    background-color: red !important;
+    padding-top:0 !important;
+    border:none !important;
+    padding-top: 2% !important;
+}
+.edit-profile-photo{
+    margin-left:30%;
+    margin-right:auto;
+    border: 2px solid green;
+    width:30%;
+    height: 60%;
+}
+.button{
+    margin-left:1% !important;
+    padding-top:5px !important;
+}
+h2{
+    margin-left: 30%;
+}
+.notify{
+    z-index:6;
+}

@@ -12,7 +12,11 @@ const List= ({columns,data,width,height})=>{
             <Burger open={open} setOpen={setOpen} />
             <Menu open={open} setOpen={setOpen} />
             </div>
-            <Container width={width} height={height}>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <Container   width={width} height={height}>
             <Table className='table' columns={columns} data={data} />
             </Container>
         </div>

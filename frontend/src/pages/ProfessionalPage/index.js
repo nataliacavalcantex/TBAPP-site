@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-
+import Header from '../../components/Header'
 import List from '../../components/List'
 import api from '../../services/api'
-
+import './styles.css'
 function ProfessionalPage(){
     const columns = [
         {
@@ -69,10 +69,7 @@ function ProfessionalPage(){
      
     return(
         <div> 
-         <br></br>
-         <br></br>
-         <br></br>
-         <br></br>
+          <Header></Header>
          <br></br>
          <List  columns={columns} data={data} width="160vh" height="50vh" />  
         </div>

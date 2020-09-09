@@ -6,11 +6,10 @@ const Menu = ({ open }) => {
   const name=sessionStorage.getItem('name')
   return (
     <StyledMenu open={open}>
-      <img src={logo} className="Logo" alt="loldesign logo"></img>
-      <br></br>
-      <br></br>
+      {/* <img src={logo} className="Logo" alt="loldesign logo"></img> */}
       <p>Bem vindo(a), {name}</p>
       <a><Link className="Link" to='/home'>Home</Link></a>
+      <a><Link className="Link" to='/profile'>Meus Dados</Link></a>
       <a><NavLink className="Link" to='/professional'>Profissionais</NavLink></a>
       <a ><Link className="Link" to='/unity'>Unidades</Link></a>
       <a>Estatísticas</a>

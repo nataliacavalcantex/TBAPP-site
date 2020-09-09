@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+import Header from '../../components/Header'
 import List from '../../components/List'
 import api from '../../services/api'
 
@@ -42,10 +42,8 @@ function UnityPage(){
       ];
       
     return(
-        <div> 
-         <br></br>
-         <br></br>
-         <br></br>
+        <div>
+        <Header></Header> 
          <List  columns={columns} data={data} width="120vh" height="50vh" />  
         </div>
     )

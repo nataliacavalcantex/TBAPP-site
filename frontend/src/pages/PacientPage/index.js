@@ -3,6 +3,7 @@ import Table from 'rc-table';
 import Container from '../../components/Container'
 import Burger from '../../components/Burger'
 import Menu from '../../components/Menu'
+import Header from '../../components/Header'
 import api from '../../services/api'
 import './style.css'
 function PacientPage(){
@@ -54,6 +55,7 @@ function PacientPage(){
     return(
         <div>
             <div>
+            <Header></Header>
             <Burger open={open} setOpen={setOpen} />
             <Menu open={open} setOpen={setOpen} />
             </div>
