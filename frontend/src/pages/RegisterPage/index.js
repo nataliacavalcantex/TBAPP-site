@@ -120,7 +120,7 @@ function RegisterPage(){
                             </select>
                         </div>
                     
-                        <Button type="submit" onClick={(e)=>{submit(e)}} >Cadastrar</Button>
+                        <Button type="submit" height='60px' onClick={(e)=>{submit(e)}} >Cadastrar</Button>
                         <br></br>
                     </Form>
                     <ToastContainer></ToastContainer>

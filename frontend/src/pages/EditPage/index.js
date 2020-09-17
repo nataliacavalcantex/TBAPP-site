@@ -111,8 +111,8 @@ function EditPage(){
                             </select>
                         </div> */}
                         <div className="button">
-                            <Button  type="submit" onClick={(e)=>{submit(e)}} >Finalizar</Button>
-                            <a><Link to="/profile"><Button className="cancel-button">Cancelar</Button></Link></a>
+                            <Button  type="submit" height='60px' onClick={(e)=>{submit(e)}} >Finalizar</Button>
+                            <a><Link to="/profile"><Button className="cancel-button" height='60px'>Cancelar</Button></Link></a>
                             <br></br>
                         </div>
                     </Form>

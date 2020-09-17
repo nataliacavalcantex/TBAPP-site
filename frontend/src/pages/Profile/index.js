@@ -52,7 +52,7 @@ function Profile(){
                 <br></br>
                 
                 <Container width="80vh" height="100%">       
-                    <h3 id="title">Meus Dados</h3>   
+                    <h3 id="title" style={{marginLeft:"38%"}}>Meus Dados</h3>   
                     <br></br>     
                     <img src={profile} className="Profile" alt="profile logo"></img>
                 <br></br>
@@ -82,7 +82,7 @@ function Profile(){
                             <p className="about-field">{unity2}</p>
                         </div>
                     <br></br>
-                     <NavLink to="/editProfile"><Button  className='end-button' width='90%'>Editar</Button></NavLink>
+                     <NavLink to="/editProfile"><Button  className='end-button' justify='center' height='40px' width='90%'>Editar</Button></NavLink>
                 </Form>
                 </Container>
                 <ToastContainer></ToastContainer>

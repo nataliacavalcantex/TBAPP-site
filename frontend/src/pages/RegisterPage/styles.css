@@ -3,7 +3,7 @@
 #title-register{
     display: inline;
     vertical-align: top;
-     margin-left: 22%; 
+     margin-left: 27%; 
     text-align: center;
 }
 label{
@@ -15,11 +15,11 @@ padding:0;
 margin:0
 }
 .profile-photo{
-    margin-left:35%;
+    margin-left:40%;
     margin-right:auto;
     border: 2px solid green;
-    width:28%;
-    height: 15%;
+    width: 150px;
+    height: 150px;
 }
 select{
     border:2px solid #eeee;
