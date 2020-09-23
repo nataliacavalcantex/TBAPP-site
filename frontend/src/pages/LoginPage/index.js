@@ -19,11 +19,14 @@ function LoginPage(){
         }).then(response =>{
             console.log(response)
             sessionStorage.setItem('token',response.data.token)
-            sessionStorage.setItem('name',response.data.user.name)
+            sessionStorage.setItem('name',response.data.userExist.name)
+            sessionStorage.setItem('avatar_id',response.data.userExist.avatar_id)
+            sessionStorage.setItem('avatar_url',response.data.userExist.avatar.url)
+            sessionStorage.setItem('avatar_path',response.data.userExist.avatar.path)
             history.push('/home')
         }).catch(error =>{
             console.log(error)
-            alert('Dados inválidos')
+            // alert('Dados inválidos')
         })
     }
 

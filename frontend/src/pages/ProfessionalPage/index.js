@@ -44,7 +44,7 @@ function ProfessionalPage(){
             title: 'Unidade',
             dataIndex: 'unity',
             key: 'unity',
-            width: 200,
+            width: 300,
             align:"center"
         },
         {
@@ -59,11 +59,11 @@ function ProfessionalPage(){
       ];
    
       const data = [
-          { name: 'Julia',gender:"feminino", cpf: 2887489347598, status: 'Ativo', cns: '1774863465783432',unity:'Unidade 1',professional_type:"Enfermeiro" },
-          { name: 'Maria',gender:"feminino", cpf: 388748347847598, status: 'Ativo', cns: '4865873465783432',unity:'Unidade 1',professional_type:"Médico" },
-          { name: 'Marcos',gender:"masculino", cpf: 883632489347598, status: 'Ativo', cns: '873465783432',unity:'Unidade 1',professional_type:"Enfermeiro" },
-          { name: 'Antonio',gender:"masculino", cpf: 46874892037598, status: 'Ativo', cns: '65873465783432',unity:'Unidade 1',professional_type:"Médico" },
-          { name: 'Alex',gender:"masculino", cpf: 887265632, status: 'Ativo', cns: '1865873465783432',unity:'Unidade 1',professional_type:"Enfermeiro" },
+          { name: 'Julia',gender:"feminino", cpf: 2887489347598, status: 'Ativo', cns: '1774863465783432',unity:'UBS L 36',professional_type:"Enfermeiro" },
+          { name: 'Maria',gender:"feminino", cpf: 388748347847598, status: 'Ativo', cns: '4865873465783432',unity:'UBS L 22',professional_type:"Médico" },
+          { name: 'Marcos',gender:"masculino", cpf: 883632489347598, status: 'Ativo', cns: '873465783432',unity:'UBSF AMPLIADA DR PLATAO ARAUJO',professional_type:"Enfermeiro" },
+          { name: 'Antonio',gender:"masculino", cpf: 46874892037598, status: 'Ativo', cns: '65873465783432',unity:'UBS L 36',professional_type:"Médico" },
+          { name: 'Alex',gender:"masculino", cpf: 887265632, status: 'Ativo', cns: '1865873465783432',unity:'UBSF AMPLIADA DR PLATAO ARAUJO',professional_type:"Enfermeiro" },
           
       ];
      

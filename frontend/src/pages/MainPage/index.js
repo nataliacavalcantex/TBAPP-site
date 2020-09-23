@@ -26,7 +26,7 @@ function MainPage() {
                 <h2 id="title-main">Bem vindo ao TBApp</h2>
                 <br></br>
                 <br></br>
-                <p >O TBApp é uma aplicação que auxilia os pacientes durante o tratamento da tuberculose e permite que os profissionais de saúde acompanhem mais de perto o tratamento dos enfermos</p>
+                <p >É um site de monitoramento e avaliação do uso da ferramenta TBApp por profissionais de saúde da Atenção Primária da Secretaria Municipal de Saúde de Manaus</p>
             </Container>
       
         </div>

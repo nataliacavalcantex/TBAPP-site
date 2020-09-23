@@ -7,9 +7,7 @@ class ProfessionalController{
            where:{professional_type:0}})
         return res.json(response)
     }
-    async index(req,res){
-        
-    }
+    
 
 }
 

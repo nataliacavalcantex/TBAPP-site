@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Link,Navlink } from 'react-router-dom'
 import { AiOutlineMail,AiOutlineLock,AiOutlineUser,AiOutlinePhone,AiOutlineSetting,AiOutlineHome,AiOutlineAudit} from "react-icons/ai"
 import './styles.css'
+import Avatar from './Avatar'
 import Header from '../../components/Header'
 function EditPage(){
     const [name,setName]=useState('');
@@ -22,7 +23,10 @@ function EditPage(){
     const [unity2,setUnity2]=useState('');
     const [unity,setUnity]=useState('');
     const [open, setOpen] = useState(false);
+    
     const token= sessionStorage.getItem('token')
+
+   const photoId= sessionStorage.getItem('avatar_id')
     async function submit(e){
         e.preventDefault()
         const res= await api.put('/user',{
@@ -32,16 +36,19 @@ function EditPage(){
             password:password,
             confirmPassword:confirmPassword,
             phone:phone,
+            avatar_id:photoId,
             // unity_id:unity,
             // unity2_id:unity2,
         },{
             headers: { Authorization: "Bearer " + token }}).then(response =>{
             console.log(response)
-            toast.success("Cadastro alterado com sucesso!")
+            window.location.reload()
+            alert('Dados alterados com sucesso')
         }).catch(error=>{
             console.log(error)
         })
     }
+    
         return(
             <div >
                
@@ -54,8 +61,10 @@ function EditPage(){
                 <Container width="90vh" height="100%"> 
                 {/* <ToastContainer className='notify'></ToastContainer>                */}
                         <h2>Editar Cadastro</h2>
-
-                        <img src={profile} className="edit-profile-photo" alt="profile logo"></img>
+                        <Avatar>
+                        
+                        </Avatar>
+                        
 
                     <Form display="table-row"> 
                         <div className='input-field'>
@@ -111,7 +120,7 @@ function EditPage(){
                             </select>
                         </div> */}
                         <div className="button">
-                            <Button  type="submit" height='60px' onClick={(e)=>{submit(e)}} >Finalizar</Button>
+                            <Button  type="submit" height='60px' onClick={(e)=>{submit(e)}} ><a className="end"><Link to='/profile'>Finalizar</Link></a></Button>
                             <a><Link to="/profile"><Button className="cancel-button" height='60px'>Cancelar</Button></Link></a>
                             <br></br>
                         </div>

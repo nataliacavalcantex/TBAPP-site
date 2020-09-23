@@ -3,10 +3,10 @@ import profile from '../../assets/img/profile2.png'
 import Burger from '../../components/Burger'
 import Menu from '../../components/Menu'
 import api from '../../services/api'
+import Avatar from '../EditPage/Avatar'
 import {Form,Input,Button,Title} from '../../components/Form'
 import Container from '../../components/Container'
 import { ToastContainer, toast } from 'react-toastify';
-// import { AiOutlineMail,AiOutlineLock,AiOutlineUser,AiOutlinePhone,AiOutlineSetting,AiOutlineHome,AiOutlineAudit} from "react-icons/ai"
  import './styles.css'
 import Header from '../../components/Header'
 import { NavLink } from 'react-router-dom'
@@ -21,28 +21,39 @@ function Profile(){
     const [unity2,setUnity2]=useState(0);
     const [professional_type,setProfessionalType]=useState('');
     const [open, setOpen] = useState(false);
-
+    const urlPhoto=sessionStorage.getItem('avatar_path')
+    const photo=`http://localhost:3333/files/${urlPhoto}`
     const token= sessionStorage.getItem('token')
     async function submit(){
         const res= await api.get('/user',{
             headers: { Authorization: "Bearer " + token }})
         .then(response =>{
-            console.log(response.data)
+            // console.log(response.data)
             setName(response.data.name)
             setCPF(response.data.cpf)
             setCNS(response.data.cns)
             setPhone(response.data.phone)
             setEmail(response.data.email)
-            setUnity(response.data.unity_id)
-            setUnity2(response.data.unity2_id)
+            setUnity("UBSF AMPLIADA DR PLATAO ARAUJO")
+            setUnity2("UBS L 36")
+            
         }).catch(error=>{
             console.log(error)
         })
     }
+   
+    async function getPhoto(){
+        const response= await api.get(`/files/${photo}`,{
+            headers: { Authorization: "Bearer " + token }
+        })
+        console.log(response)
+
+    }
     useEffect(()=>{
-        submit()
+        submit();
     })
         return(
+           
             <div>
                 <Header></Header>
                 <Burger open={open} setOpen={setOpen} />
@@ -51,10 +62,12 @@ function Profile(){
                 <br></br>
                 <br></br>
                 
-                <Container width="80vh" height="100%">       
-                    <h3 id="title" style={{marginLeft:"38%"}}>Meus Dados</h3>   
-                    <br></br>     
-                    <img src={profile} className="Profile" alt="profile logo"></img>
+                <Container width="90vh" height="200%">       
+                    <h3 id="title" style={{marginLeft:"35%"}}>Meus Dados</h3>   
+                    <br></br>   
+                      
+                     <img src={photo} className="Profile"></img>
+                    
                 <br></br>
                 <Form className="profile-info" >
                         <div >
@@ -81,8 +94,8 @@ function Profile(){
                             <label>Unidade 2</label>
                             <p className="about-field">{unity2}</p>
                         </div>
-                    <br></br>
                      <NavLink to="/editProfile"><Button  className='end-button' justify='center' height='40px' width='90%'>Editar</Button></NavLink>
+                     <br></br>
                 </Form>
                 </Container>
                 <ToastContainer></ToastContainer>

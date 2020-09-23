@@ -3,9 +3,11 @@ import Table from 'rc-table';
 import Container from '../../components/Container'
 import Burger from '../../components/Burger'
 import Menu from '../../components/Menu'
+
 import './StyledList.css'
 const List= ({columns,data,width,height})=>{
     const [open, setOpen] = useState(false);
+    console.log(data)
     return(
         <div>
             <div>
@@ -18,6 +20,7 @@ const List= ({columns,data,width,height})=>{
             <br></br>
             <Container   width={width} height={height}>
             <Table className='table' columns={columns} data={data} />
+           
             </Container>
         </div>
     )
