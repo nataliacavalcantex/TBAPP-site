@@ -15,6 +15,7 @@
 .button{
     margin-left:1% !important;
     padding-top:5px !important;
+ 
 }
 h2{
     margin-left: 35%;
@@ -22,6 +23,7 @@ h2{
 .notify{
     z-index:6;
 }
-.end{
-    color:white !important;
+
+a{
+    color:white ;
 }

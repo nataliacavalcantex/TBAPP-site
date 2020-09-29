@@ -120,7 +120,7 @@ function EditPage(){
                             </select>
                         </div> */}
                         <div className="button">
-                            <Button  type="submit" height='60px' onClick={(e)=>{submit(e)}} ><a className="end"><Link to='/profile'>Finalizar</Link></a></Button>
+                            <Button   type="submit" height='60px' onClick={(e)=>{submit(e)}} ><a ><Link to='/profile'>Finalizar</Link></a></Button>
                             <a><Link to="/profile"><Button className="cancel-button" height='60px'>Cancelar</Button></Link></a>
                             <br></br>
                         </div>

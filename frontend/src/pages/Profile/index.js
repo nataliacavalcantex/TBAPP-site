@@ -46,7 +46,12 @@ function Profile(){
         const response= await api.get(`/files/${photo}`,{
             headers: { Authorization: "Bearer " + token }
         })
-        console.log(response)
+        .then(response =>{
+             console.log(response.data)
+
+        }).catch(error=>{
+            console.log(error)
+        })
 
     }
     useEffect(()=>{
@@ -62,8 +67,9 @@ function Profile(){
                 <br></br>
                 <br></br>
                 
-                <Container width="90vh" height="200%">       
+                <Container width="95vh" height="250%">       
                     <h3 id="title" style={{marginLeft:"35%"}}>Meus Dados</h3>   
+                    <br></br>   
                     <br></br>   
                       
                      <img src={photo} className="Profile"></img>
@@ -95,6 +101,9 @@ function Profile(){
                             <p className="about-field">{unity2}</p>
                         </div>
                      <NavLink to="/editProfile"><Button  className='end-button' justify='center' height='40px' width='90%'>Editar</Button></NavLink>
+                     <br></br>
+                     <br></br>
+                     <br></br>
                      <br></br>
                 </Form>
                 </Container>

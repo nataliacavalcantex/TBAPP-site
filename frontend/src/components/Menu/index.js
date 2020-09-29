@@ -1,9 +1,20 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import { StyledMenu } from './StyledMenu';
 import logo from '../../assets/img/profile.png'
 import { Link,NavLink } from 'react-router-dom';
+import api from '../../services/api'
 const Menu = ({ open }) => {
-  const name=sessionStorage.getItem('name')
+  const[name,setName]=useState('')
+  const token= sessionStorage.getItem('token')
+  async function getUser(){
+    const res = await api.get('/user',{
+        headers: { Authorization: "Bearer " + token }})
+    console.log(res.data.name)
+    setName(res.data.name) 
+}
+useEffect(()=>{
+  getUser()
+})
   return (
     <StyledMenu open={open}>
       {/* <img src={logo} className="Logo" alt="loldesign logo"></img> */}
