@@ -22,6 +22,20 @@ function RegisterPage(){
     const [professional_type,setProfessionalType]=useState('');
     let history = useHistory();
     const [open, setOpen] = useState(false);
+
+    function mascara(e){ 
+        
+        if(e.target.value.length == 1)
+            e.target.value = '(' + e.target.value; 
+        if(e.target.value.length == 3)
+            e.target.value = e.target.value + ') '; 
+
+        if(e.target.value.length == 10)
+            e.target.value = e.target.value + '-';
+        
+        setPhone(e.target.value.substring(0, 15));
+    }
+
     async function submit(e){
         e.preventDefault()
         const res= await api.post('/users',{
@@ -85,7 +99,7 @@ function RegisterPage(){
                         <div className='input-field'>
                             <label>Telefone </label>
                             <AiOutlinePhone></AiOutlinePhone>
-                            <Input height="35px"  type="name"  placeholder="Digite o telefone" value={phone} onChange={e=>{setPhone(e.target.value)}}/>
+                            <Input height="35px"  type="name"  placeholder="Digite o telefone" value={phone} onChange={e=>{mascara(e)}}/>
                         </div>
                         <div className='input-field'>
                             <label>Unidade 1 </label>
