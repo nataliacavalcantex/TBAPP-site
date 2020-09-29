@@ -4,16 +4,16 @@ export const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #eeee;
+  background-color:#eeee ;
   height: 100vh;
   text-align: left;
   padding: 0.8rem;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   opacity:1;
   transition: transform 0.3s ease-in-out;
-  
+  z-index:2;
   @media (max-width:700px) {
     width: 100%;
   }
@@ -36,15 +36,16 @@ export const StyledMenu = styled.nav`
   }
   p{
     border-bottom:1px solid green;
-    margin-top:50%;
+    margin-top:20%;
     margin-bottom:10%;
     padding-bottom:20px   
   }
   .Logo{
-    margin-top:-160%;
-    margin-bottom:15%;
-    width:100px;
-    margin-left:15%;
+    margin-top:-100%;
+    margin-bottom:70%;
+    width:60%;
+    height:20%;
+    margin-left:5%;
     border-radius:50%;
   }
   .Link{

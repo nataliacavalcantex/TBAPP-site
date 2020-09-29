@@ -1,4 +1,5 @@
 import User from '../models/User'
+import File from '../models/File'
 import * as Yup from 'yup'
 class UserController{
     async store(req,res){
@@ -30,16 +31,22 @@ class UserController{
         })
     }
     async index(req,res){
-        console.log(req.userId)
-        const user= await User.findOne({
-            where:{
-                id:req.userId
-            }
+
+        const {id,name,email,cpf,phone,avatar}= await User.findByPk(req.userId,{
+            include:[{
+                    model:File,
+                    as:'avatar',
+                    attributes:['id','path','url']
+            }]
         })
-        if(!user){
-            return res.status(404).json({error:"User not found"})
-        }
-        return res.json(user)
+        return res.json({
+            id,
+            name,
+            cpf,
+            phone,
+            email,
+            avatar
+          });
     }
     async update(req,res){
         const schema=Yup.object().shape({
@@ -64,13 +71,20 @@ class UserController{
         // if(oldPassword && !(await user.checkPassword(oldPassword))){
         //     return res.status(401).json({error:'Password does not mach'})
         // }
-        const {id,name} = await user.update(req.body)
-        return res.json({
-            id,
-            name,
-            email,
-           
+        await user.update(req.body);
+        const {id,name,avatar}= await User.findByPk(req.userId,{
+            include:[{
+                    model:File,
+                    as:'avatar',
+                    attributes:['id','path','url']
+            }]
         })
+        return res.json({
+          id,
+          name,
+          email,
+          avatar
+        });
     }
 
 }

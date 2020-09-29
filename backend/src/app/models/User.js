@@ -28,6 +28,7 @@ class User extends Model{
     static associate(models){
         this.belongsTo(models.Unity,{foreignKey:'unity_id',as:'unitys'})
         this.belongsTo(models.Unity,{foreignKey:'unity2_id',as:'unitys2'})
+        this.belongsTo(models.File,{foreignKey:'avatar_id',as:'avatar'})
     }
     checkPassword(password){
         return bcrypt.compare(password,this.password_hash)

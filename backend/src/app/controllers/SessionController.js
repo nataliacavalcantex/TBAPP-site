@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken'
 import auth from '../../config/auth'
 import User from '../models/User'
+import File from '../models/File'
 import * as Yup from 'yup'
 class SessionController{
     async store(req,res){
@@ -13,23 +14,23 @@ class SessionController{
         }
         const {cpf,password}=req.body
         const userExist= await User.findOne({where:{
-            cpf
+            cpf},
+            include:[{
+                model:File,
+                as:"avatar",
+                attributes: ['id','path','url']
+            }]
+         })
 
-        }})
         if(!userExist){
             return res.status(404).json({error:"User not found"})
         }
         if(!(await userExist.checkPassword(password))){
             return res.status(401).json({error:"Password does not match"})
         }
-        const{id,name}=userExist
+        const{id}=userExist
         return res.json({
-            user:{
-                id,
-                name,
-                cpf,
-                password
-            },token: jwt.sign({id},auth.secret,{
+            userExist,token: jwt.sign({id},auth.secret,{
                 expiresIn:auth.expiresIn
             })
         })

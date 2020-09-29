@@ -1,85 +1,66 @@
-import React,{Component} from 'react'
+import React,{useState,useEffect} from 'react'
 import {AiOutlineLock,AiOutlineUser} from "react-icons/ai"
-import { ToastContainer, toast } from 'react-toastify';
-import logo from '../../assets/img/logo.png'
-import Button from '../../components/Button'
-import Input from '../../components/Input'
+import { useHistory } from 'react-router-dom';
+import {Form,Input,Button,Title} from '../../components/Form'
 import Container from '../../components/Container'
-import Title from '../../components/Title'
-import Form from '../../components/Form'
 import api from '../../services/api.js'
 import '../../custom.scss';
 import './styles.css'
-import 'react-toastify/dist/ReactToastify.css';
-import { Link,NavLink } from 'react-router-dom';
-class LoginPage extends Component{
+function LoginPage(){
+    let history = useHistory();
+    const [cpf,setCPF]=useState('');
+    const [password,setPassword]=useState('')
 
-state={
-    cpf:'',
-    password:''
-}
-
-handleCPF= e=>{
-    this.setState({cpf:e.target.value})
-}
-
-handlePassword= async e=>{
-    this.setState({password:e.target.value})
-}
-
- handleSubmit= async e=>{
-    e.preventDefault()
-    const response= await api.post('/login',{
-        cpf:this.state.cpf,
-        password:this.state.password
-    }).then(response => {
-        console.log(response)
-        sessionStorage.setItem('token',response.data.token)
-        sessionStorage.setItem('name',response.data.user.name)
-        console.log(response.data.user.name)
-        
-    })
-    .catch(error => {
-        console.log(error)
-        toast("Something went wrong!")
-      })
-}
-
- render(){
+    async function submit (e){
+        e.preventDefault()
+        const res= await api.post('/login',{
+            cpf:cpf,
+            password:password
+        }).then(response =>{
+            console.log(response)
+            sessionStorage.setItem('token',response.data.token)
+            sessionStorage.setItem('name',response.data.userExist.name)
+            sessionStorage.setItem('avatar_id',response.data.userExist.avatar_id)
+            sessionStorage.setItem('avatar_url',response.data.userExist.avatar.url)
+            sessionStorage.setItem('avatar_path',response.data.userExist.avatar.path)
+            history.push('/home')
+        }).catch(error =>{
+            console.log(error)
+            // alert('Dados inválidos')
+        })
+    }
 
      return(
-         <div>
-             <br></br>
-            <a href="/"><img src={logo} className="Logo" alt="tbapp logo"></img></a>
-           <br></br>
-           <br></br>
-           <br></br>
-           <br></br>
-         <Container width="80vh" height="400px">
+         <div className="home-body">
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+         <Container width="80vh" height="60%">
             <Title>Login</Title>
             <Form>
                 <div>
                     <label >CPF</label>
                     <AiOutlineUser ></AiOutlineUser>
-                    <Input width ="550px" type="cpf"  placeholder="Digite seu CPF" value={this.state.cpf} onChange={this.handleCPF} />
+                    <Input width = "100%" type="cpf"  placeholder="Digite seu CPF" value={cpf} onChange={e=>{setCPF(e.target.value)}} />
                 </div>
 
                 <div>
                     <label>Senha</label>
                     <AiOutlineLock></AiOutlineLock>
-                    <Input width = "550px" type="password"  placeholder="Digite sua senha"  value={this.state.password} onChange={this.handlePassword}/>
+                    <Input width = "100%" type="password"  placeholder="Digite sua senha"  value={password} onChange={e=>{setPassword(e.target.value)}}/>
                 </div>
                 <div>
-                    
+                    <br></br>
                     <p className="text">Esqueceu a senha? Clique <a href="#">aqui</a> para recuperar</p>
-                    <a><Button  width="95%" type="submit" onClick={this.handleSubmit} ><NavLink className="Link" to='/home'>Login</NavLink></Button></a>
+                    <Button  width="95%" type="submit" onClick={(e)=>{submit(e)}}>Login</Button>
                 </div>
             </Form>
             
          </Container>
          </div>
      )
- }   
+    
 }
 
 export default LoginPage
